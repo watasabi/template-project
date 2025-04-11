@@ -1,2 +1,6 @@
 ipykernel
-python-dotenv
+python-dotenv==1.1.0
+azureml-core==1.58.0
+azure-ai-ml==1.19.0
+azureml-pipeline-core==1.58.0
+azure-storage-blob==12.23.1

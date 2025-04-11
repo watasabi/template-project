@@ -1,11 +1,7 @@
 # Data Project Template
 
-<a target="_blank" href="https://datalumina.com/">
-    <img src="https://img.shields.io/badge/Datalumina-Project%20Template-2856f7" alt="Datalumina Project" />
-</a>
-
-## Cookiecutter Data Science
-This project template is a simplified version of the [Cookiecutter Data Science](https://cookiecutter-data-science.drivendata.org) template, created to suit the needs of Datalumina and made available as a GitHub template.
+## Author
+[Rodrigo Watanabe Pisaia](rodrigo.pisaia@brf.com)
 
 ## Adjusting .gitignore
 
@@ -75,5 +71,7 @@ This command creates a copy of `.env.example` and names it `.env`, allowing you 
     └── services                <- Service classes to connect with external platforms, tools, or APIs
         └── __init__.py 
 ```
+
+
 
 --------
