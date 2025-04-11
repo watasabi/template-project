@@ -24,9 +24,6 @@ env_var = {
     "APPDB": "",
     "APPUID": "",
     "APPPWD": "",
-    # "SUBSCRIPTION_ID": "21113636-9177-4577-907f-2b773e81f048",
-    # "RESOURCE_GROUP": "BRF-RG-ANLTCS-IA-LAB",
-    # "WORKSPACE_NAME": "brf-ml-analytics-dev",
 }
 
 env.environment_variables = env_var
