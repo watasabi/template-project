@@ -6,6 +6,7 @@ from azureml.pipeline.core import (
     Pipeline,
     StepSequence,
     PipelineData,
+    PipelineEndpoint,
 )
 from azureml.core import (
     Workspace,
@@ -17,8 +18,10 @@ from azureml.core import (
 )
 from azureml.core.environment import CondaDependencies
 from utils import normalize_conda_dependencies
+from azureml_env_build import build_env
 import os
 import glob
+
 print("Loading workspace")
 SUBSCRIPTION_ID = os.getenv("SUBSCRIPTION_ID")
 RESOURCE_GROUP = os.getenv("RESOURCE_GROUP")
@@ -41,17 +44,20 @@ except ComputeTargetException:
     print("Compute target not found")
 
 ## setup environment
+env_name = "mlops-example-pipeline-env3"
+conda_dependencies_file_path = "./src/config/pipe_env/env.yml"
+
 if compute_target is not None:
     compute_target.wait_for_completion(show_output=True)
     try:
-        env = Environment.get(workspace=ws, name="mlops-example-pipeline")
+        env = Environment.get(workspace=ws, name=env_name)
         conda_dep_env = (
             env.__dict__["python"]
             .__dict__["conda_dependencies"]
             .__dict__["_conda_dependencies"]
         )
         conda_dep_file = CondaDependencies(
-            conda_dependencies_file_path=".\\src\\config\\pipe_env\\env.yml"
+            conda_dependencies_file_path=conda_dependencies_file_path
         )
         if normalize_conda_dependencies(conda_dep_env) == normalize_conda_dependencies(
             conda_dep_file.__dict__["_conda_dependencies"]
@@ -62,18 +68,23 @@ if compute_target is not None:
             print("Updating environment")
             env.python.conda_dependencies = conda_dep_file
             env.register(workspace=ws)
-            env = Environment.get(workspace=ws, name="mlops-example-pipeline")
+            env = Environment.get(workspace=ws, name=env_name)
             print("Environment updated")
     except Exception:
         print("Environment not found. Creating a new one.")
-        os.system("python azureml_env_build.py")
+        print("Building environment...")
+
+        build_env(env_name=env_name, conda_dependencies_file_path=conda_dependencies_file_path)
+        env = Environment.get(workspace=ws, name=env_name)
+        print("Environment build completed")
+
 
     run = RunConfiguration()
     run.environment = env
     run.target = compute_target
 
 
-source_directory = ".\\src"
+source_directory = "./src"
 data_raw = PipelineData(
     "data_raw", datastore=datastore, output_path_on_compute="azureml/"
 )
@@ -158,7 +169,7 @@ pipe_step4 = PythonScriptStep(
 
 step_sequence = [pipe_step1, pipe_step2, pipe_step3, pipe_step4]
 pipeline = Pipeline(
-    workspace=ws, steps=step_sequence, description="Pipeline to measure chicken"
+    workspace=ws, steps=step_sequence, description="pipeline example steps"
 )
 print("Pipeline is built.")
 
@@ -167,9 +178,9 @@ pipeline_run.wait_for_completion(show_output=True)
 
 
 if __name__ == "__main__":
-    RUN = False  # TODO change this if you want to run the pipeline
-    DEPLOY = False  # TODO change this if you want to deploy the pipeline
-
+    RUN = True  # TODO change this if you want to run the pipeline
+    DEPLOY = True  # TODO change this if you want to deploy the pipeline
+    description = "Publish pipeline example"
     if RUN:
         # Submitting the run
         pipeline_run = experiment.submit(
@@ -191,7 +202,7 @@ if __name__ == "__main__":
 
             print("Pipeline Endpoint not found. Creating a new one.")
             published = pipeline.publish(
-                name="csc_ia_reembolsos",
+                name="pipeline_example",
                 description=description,
             )
             pipeline_endpoint_by_name = PipelineEndpoint.publish(
@@ -203,7 +214,7 @@ if __name__ == "__main__":
 
         # Add the latest version of the pipeline to the endpoint
         published = pipeline.publish(
-            name="csc_ia_reembolsos",
+            name="pipeline_example_endpoint",
             description=description,
         )
         pipeline_endpoint_by_name.add(published)

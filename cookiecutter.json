@@ -1,0 +1,17 @@
+{
+    "project_name": "BRF Data Science Template",
+    "project_dir": "brf-anltcs-{{ cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-') }}",
+    "project_desc": "TODO",
+    "full_name": "Name",
+    "email": "Email",
+    "use_git": ["yes", "no"],
+  
+  
+    "__prompts__": {
+          "project_name": "Select your project name:",
+          "project_dir": "Select your project directory name:",
+          "project_desc": "A short project description:",
+          "full_name": "Your name:",
+          "email": "Your email:"
+      }
+  }

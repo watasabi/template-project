@@ -44,7 +44,6 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     run = Run.get_context()
-
     pass
 
     # # load data

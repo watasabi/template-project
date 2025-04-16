@@ -1,0 +1,296 @@
+{
+  "source": 2,
+  "revision": 2,
+  "description": null,
+  "createdBy": {
+    "displayName": "Matheus Melara Girardi",
+    "url": "https://spsprodeus23.vssps.visualstudio.com/Aa0bf02ed-d723-4ea3-a124-43d23cb9d339/_apis/Identities/196aead0-c38d-6e35-a36a-b15c13ec70a8",
+    "_links": {
+      "avatar": {
+        "href": "https://dev.azure.com/brf-corp/_apis/GraphProfile/MemberAvatars/aad.MTk2YWVhZDAtYzM4ZC03ZTM1LWEzNmEtYjE1YzEzZWM3MGE4"
+      }
+    },
+    "id": "196aead0-c38d-6e35-a36a-b15c13ec70a8",
+    "uniqueName": "matheus.girardi@brf.com",
+    "imageUrl": "https://dev.azure.com/brf-corp/_apis/GraphProfile/MemberAvatars/aad.MTk2YWVhZDAtYzM4ZC03ZTM1LWEzNmEtYjE1YzEzZWM3MGE4",
+    "descriptor": "aad.MTk2YWVhZDAtYzM4ZC03ZTM1LWEzNmEtYjE1YzEzZWM3MGE4"
+  },
+  "createdOn": "2025-04-15T12:21:03.893Z",
+  "modifiedBy": {
+    "displayName": "Matheus Melara Girardi",
+    "url": "https://spsprodeus23.vssps.visualstudio.com/Aa0bf02ed-d723-4ea3-a124-43d23cb9d339/_apis/Identities/196aead0-c38d-6e35-a36a-b15c13ec70a8",
+    "_links": {
+      "avatar": {
+        "href": "https://dev.azure.com/brf-corp/_apis/GraphProfile/MemberAvatars/aad.MTk2YWVhZDAtYzM4ZC03ZTM1LWEzNmEtYjE1YzEzZWM3MGE4"
+      }
+    },
+    "id": "196aead0-c38d-6e35-a36a-b15c13ec70a8",
+    "uniqueName": "matheus.girardi@brf.com",
+    "imageUrl": "https://dev.azure.com/brf-corp/_apis/GraphProfile/MemberAvatars/aad.MTk2YWVhZDAtYzM4ZC03ZTM1LWEzNmEtYjE1YzEzZWM3MGE4",
+    "descriptor": "aad.MTk2YWVhZDAtYzM4ZC03ZTM1LWEzNmEtYjE1YzEzZWM3MGE4"
+  },
+  "modifiedOn": "2025-04-15T12:21:50.417Z",
+  "isDeleted": false,
+  "isDisabled": false,
+  "variables": {
+    "COMPUTE_CLUSTER": {
+      "value": "brf-cluster-small"
+    },
+    "RESOURCE_GROUP": {
+      "value": "brf-rg-anltcs-ia-lab"
+    },
+    "SUBSCRIPTION_ID": {
+      "value": "21113636-9177-4577-907f-2b773e81f048"
+    },
+    "WORKSPACE_NAME": {
+      "value": "brf-ml-analytics00-dev"
+    }
+  },
+  "variableGroups": [],
+  "environments": [
+    {
+      "id": 8,
+      "name": "PRD",
+      "rank": 1,
+      "owner": {
+        "displayName": "Matheus Melara Girardi",
+        "url": "https://spsprodeus23.vssps.visualstudio.com/Aa0bf02ed-d723-4ea3-a124-43d23cb9d339/_apis/Identities/196aead0-c38d-6e35-a36a-b15c13ec70a8",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/brf-corp/_apis/GraphProfile/MemberAvatars/aad.MTk2YWVhZDAtYzM4ZC03ZTM1LWEzNmEtYjE1YzEzZWM3MGE4"
+          }
+        },
+        "id": "196aead0-c38d-6e35-a36a-b15c13ec70a8",
+        "uniqueName": "matheus.girardi@brf.com",
+        "imageUrl": "https://dev.azure.com/brf-corp/_apis/GraphProfile/MemberAvatars/aad.MTk2YWVhZDAtYzM4ZC03ZTM1LWEzNmEtYjE1YzEzZWM3MGE4",
+        "descriptor": "aad.MTk2YWVhZDAtYzM4ZC03ZTM1LWEzNmEtYjE1YzEzZWM3MGE4"
+      },
+      "variables": {},
+      "variableGroups": [],
+      "preDeployApprovals": {
+        "approvals": [
+          {
+            "rank": 1,
+            "isAutomated": true,
+            "isNotificationOn": false,
+            "id": 22
+          }
+        ],
+        "approvalOptions": {
+          "requiredApproverCount": null,
+          "releaseCreatorCanBeApprover": false,
+          "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+          "enforceIdentityRevalidation": false,
+          "timeoutInMinutes": 0,
+          "executionOrder": 1
+        }
+      },
+      "deployStep": {
+        "id": 23
+      },
+      "postDeployApprovals": {
+        "approvals": [
+          {
+            "rank": 1,
+            "isAutomated": true,
+            "isNotificationOn": false,
+            "id": 24
+          }
+        ],
+        "approvalOptions": {
+          "requiredApproverCount": null,
+          "releaseCreatorCanBeApprover": false,
+          "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+          "enforceIdentityRevalidation": false,
+          "timeoutInMinutes": 0,
+          "executionOrder": 2
+        }
+      },
+      "deployPhases": [
+        {
+          "deploymentInput": {
+            "parallelExecution": {
+              "parallelExecutionType": 0
+            },
+            "agentSpecification": {
+              "identifier": "ubuntu-22.04"
+            },
+            "skipArtifactsDownload": false,
+            "artifactsDownloadInput": {
+              "downloadInputs": []
+            },
+            "queueId": 6205,
+            "demands": [],
+            "enableAccessToken": false,
+            "timeoutInMinutes": 0,
+            "jobCancelTimeoutInMinutes": 1,
+            "condition": "succeeded()",
+            "overrideInputs": {}
+          },
+          "rank": 1,
+          "phaseType": 1,
+          "name": "Agent job",
+          "refName": null,
+          "workflowTasks": [
+            {
+              "environment": {},
+              "taskId": "33c63b11-352b-45a2-ba1b-54cb568a29ca",
+              "version": "0.*",
+              "name": "Use Python 3.10",
+              "refName": "",
+              "enabled": true,
+              "alwaysRun": false,
+              "continueOnError": false,
+              "timeoutInMinutes": 0,
+              "retryCountOnTaskFailure": 0,
+              "definitionType": "task",
+              "overrideInputs": {},
+              "condition": "succeeded()",
+              "inputs": {
+                "versionSpec": "3.10",
+                "disableDownloadFromRegistry": "false",
+                "allowUnstable": "false",
+                "githubToken": "",
+                "addToPath": "true",
+                "architecture": "x64"
+              }
+            },
+            {
+              "environment": {},
+              "taskId": "d9bafed4-0b18-4f58-968d-86655b4d2ce9",
+              "version": "2.*",
+              "name": "Install library",
+              "refName": "",
+              "enabled": true,
+              "alwaysRun": false,
+              "continueOnError": false,
+              "timeoutInMinutes": 0,
+              "retryCountOnTaskFailure": 0,
+              "definitionType": "task",
+              "overrideInputs": {},
+              "condition": "succeeded()",
+              "inputs": {
+                "script": "pip install azure-cli \npip install azureml-sdk",
+                "workingDirectory": "",
+                "failOnStderr": "false"
+              }
+            },
+            {
+              "environment": {},
+              "taskId": "46e4be58-730b-4389-8a2f-ea10b3e5e815",
+              "version": "2.*",
+              "name": "Azure CLI ",
+              "refName": "",
+              "enabled": true,
+              "alwaysRun": false,
+              "continueOnError": false,
+              "timeoutInMinutes": 0,
+              "retryCountOnTaskFailure": 0,
+              "definitionType": "task",
+              "overrideInputs": {},
+              "condition": "succeeded()",
+              "inputs": {
+                "connectedServiceNameARM": "80e06231-9f04-4f0e-a20d-1222dda291a0",
+                "scriptType": "bash",
+                "scriptLocation": "inlineScript",
+                "scriptPath": "",
+                "inlineScript": "python SEU_CAMINHO_PARA/azureml_pipe_orchestrator.py",
+                "scriptArguments": "",
+                "powerShellErrorActionPreference": "stop",
+                "addSpnToEnvironment": "false",
+                "useGlobalConfig": "false",
+                "cwd": "$(System.DefaultWorkingDirectory)/_brf-anltcs-pipeline-example",
+                "failOnStandardError": "false",
+                "powerShellIgnoreLASTEXITCODE": "false",
+                "visibleAzLogin": "true",
+                "keepAzSessionActive": "false"
+              }
+            }
+          ]
+        }
+      ],
+      "environmentOptions": {
+        "emailNotificationType": "OnlyOnFailure",
+        "emailRecipients": "release.environment.owner;release.creator",
+        "skipArtifactsDownload": false,
+        "timeoutInMinutes": 0,
+        "enableAccessToken": false,
+        "publishDeploymentStatus": true,
+        "badgeEnabled": false,
+        "autoLinkWorkItems": false,
+        "pullRequestDeploymentEnabled": false
+      },
+      "demands": [],
+      "conditions": [],
+      "executionPolicy": {
+        "concurrencyCount": 1,
+        "queueDepthCount": 0
+      },
+      "schedules": [],
+      "currentRelease": {
+        "id": 0,
+        "url": "https://vsrm.dev.azure.com/brf-corp/142d17e6-95dd-4e94-90c3-c5ccf6031fd2/_apis/Release/releases/0",
+        "_links": {}
+      },
+      "retentionPolicy": {
+        "daysToKeep": 30,
+        "releasesToKeep": 3,
+        "retainBuild": true
+      },
+      "processParameters": {},
+      "properties": {
+        "BoardsEnvironmentType": {
+          "$type": "System.String",
+          "$value": "unmapped"
+        },
+        "LinkBoardsWorkItems": {
+          "$type": "System.String",
+          "$value": "False"
+        }
+      },
+      "preDeploymentGates": {
+        "id": 0,
+        "gatesOptions": null,
+        "gates": []
+      },
+      "postDeploymentGates": {
+        "id": 0,
+        "gatesOptions": null,
+        "gates": []
+      },
+      "environmentTriggers": [],
+      "badgeUrl": "https://vsrm.dev.azure.com/brf-corp/_apis/public/Release/badge/142d17e6-95dd-4e94-90c3-c5ccf6031fd2/8/8"
+    }
+  ],
+  "artifacts": [],
+  "triggers": [],
+  "releaseNameFormat": "Release-$(rev:r)",
+  "tags": [],
+  "properties": {
+    "DefinitionCreationSource": {
+      "$type": "System.String",
+      "$value": "ReleaseImport"
+    },
+    "IntegrateBoardsWorkItems": {
+      "$type": "System.String",
+      "$value": "False"
+    },
+    "IntegrateJiraWorkItems": {
+      "$type": "System.String",
+      "$value": "false"
+    }
+  },
+  "id": 8,
+  "name": "anltcs-pipeline-example2",
+  "path": "\\",
+  "projectReference": null,
+  "url": "https://vsrm.dev.azure.com/brf-corp/142d17e6-95dd-4e94-90c3-c5ccf6031fd2/_apis/Release/definitions/8",
+  "_links": {
+    "self": {
+      "href": "https://vsrm.dev.azure.com/brf-corp/142d17e6-95dd-4e94-90c3-c5ccf6031fd2/_apis/Release/definitions/8"
+    },
+    "web": {
+      "href": "https://dev.azure.com/brf-corp/142d17e6-95dd-4e94-90c3-c5ccf6031fd2/_release?definitionId=8"
+    }
+  }
+}

@@ -57,7 +57,11 @@ docs/_build/
 target/
 
 # DotEnv configuration
+<<<<<<< Updated upstream
 # .env
+=======
+#.env
+>>>>>>> Stashed changes
 
 # Database
 *.db
@@ -94,3 +98,4 @@ target/
 
 # exclude data from source control by default
 # /data/
+*__pycache__/
