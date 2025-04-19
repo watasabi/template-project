@@ -2,11 +2,10 @@ from azureml.core import Workspace
 from azureml.core import Experiment
 from azureml.core import Dataset
 from collections.abc import Mapping, Iterable
-import os
 
-WORKSPACE_NAME = os.getenv("WORKSPACE_NAME")
-RESOURCE_GROUP = os.getenv("RESOURCE_GROUP")
-SUBSCRIPTION_ID = os.getenv("SUBSCRIPTION_ID")
+WORKSPACE_NAME = ""
+RESOURCE_GROUP = ""
+SUBSCRIPTION_ID = ""
 
 ws = Workspace(
     subscription_id=SUBSCRIPTION_ID,

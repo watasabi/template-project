@@ -1,15 +1,24 @@
 # Data Project Template
 
 ## Author
-- [Rodrigo Watanabe Pisaia]
+- [Rodrigo Watanabe Pisaia](rodrigo.pisaia@brf.com)
+- [Matheus Melara Girardi](matheus.girardi@brf.com)
 
 ## Getting Started
 To get started with this project you need to:
-__NOVO_PROJETO__: é o nome da pasta do novo projeto (ex: llm-anltcs)
+
+<br>O __REPO_PASSWORD__ é obtida no momento em que você clica em __Clone__ na aba do repositório, conforme a imagem:
+
+![print](images/repo_password.png)
+<br>
+__NOVO_PROJETO__: é o nome da pasta do novo projeto (ex: brf-anltcs-csc-gente)
 
 ```bash
 pip install uv
-uvx cookiecutter https://github.com/watasabi/template-project
+
+cd /home/azureuser/cloudfiles/code/Users/YOUR.NAME
+
+uvx cookiecutter https://{REPO_PASSWORD}@dev.azure.com/brf-corp/Analytics-DataScience-MLOps/_git/brf-anltcs-pipeline-example
 ```
 
 ## Project Organization

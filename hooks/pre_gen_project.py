@@ -1,30 +1,25 @@
-import sys
-import cookiecutter.prompt
-import subprocess
+"""
+# We use a docstring here so that we have a valid Python file that allows us to access the Jinja2 templating engine
 
-descriptions = {
-    "default_branch":"Name of the default-branch:"
-}
+{{ cookiecutter.update({ "_name_git": get_user_name() }) }}
+{{ cookiecutter.update({ "full_name": prompt_user("full_name", get_user_name())})}}
+{% if cookiecutter._name_git == "Name" or cookiecutter._name_git != cookiecutter.full_name %}
+{{ ask_to_save(cookiecutter.full_name, "name")}}
+{% endif %}
 
-if "{{ cookiecutter.use_git }}" == "yes":
-    MAX_ATTEMPTS = 5
-    branch_name = cookiecutter.prompt.read_user_variable("default_branch","main", descriptions)
-    
-    for attempt in range(MAX_ATTEMPTS):
-        try:  
-            subprocess.check_call(['git', 'check-ref-format', '--branch', branch_name])
-            break
-        except subprocess.CalledProcessError as e:
-            if attempt == MAX_ATTEMPTS - 1:
-                print(f"Max attempts reached. Invalid branch name '{branch_name}'. Git initialization will fail. Exiting.")
-            else:
-                print(f"Please try again.")
-                branch_name = cookiecutter.prompt.read_user_variable("default_branch", "main", descriptions) 
-else:
-    """{{ cookiecutter.update(
-        {
-            "default_branch": "",
-        }
-    )}}"""
+{{ cookiecutter.update({ "_email_git": get_user_email()})}} #gets user git email
+{{ cookiecutter.update({ "email": prompt_user("email", get_user_email())})}} #asks user to input email
+{% if cookiecutter.email == "Email" or cookiecutter.email != cookiecutter._email_git %} #if no email was found or input email was different, ask to save that to git config
+{{ ask_to_save(cookiecutter.email, "email")}}
+{% endif %}
 
-sys.exit(0)
+
+{{ cookiecutter.update({"use_git": prompt_user_choices("use_git", ["Yes", "No"])}) }}
+
+{% if cookiecutter.use_git == "Yes" %}
+{{ cookiecutter.update({"default_branch": branch_name("default_branch", "main")}) }}
+{% else %}
+{{ cookiecutter.update({"default_branch": ''}) }}
+{% endif %}
+
+"""
