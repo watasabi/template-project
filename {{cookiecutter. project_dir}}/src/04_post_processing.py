@@ -45,35 +45,3 @@ if __name__ == "__main__":
     args = parser.parse_args()
     run = Run.get_context()
     pass
-
-    # # load data
-    # data_inferenced = pd.read_parquet(args.data_inference)
-    # raw_data = pd.read_parquet(args.raw_data)
-    # transform_pipe = joblib.load(args.transform_pipeline)
-
-    # # post processing
-    # cat_feat = raw_data.select_dtypes(include="object").columns.drop("species")
-    
-    # num_inversed = (
-    #     transform_pipe.named_transformers_["num"]
-    #     .named_steps["StandardScaler"]
-    #     .inverse_transform(data_inferenced.filter(like="num__", axis=1))
-    # )
-
-    # num_inversed = (
-    #     transform_pipe.named_transformers_["num"]
-    #     .named_steps["Imputer"]
-    #     .inverse_transform(num_inversed)
-    # )
-
-    # cat_encoded = data_inferenced.filter(like="cat__", axis=1)
-    # ohe = transform_pipe.named_transformers_["cat"].named_steps["OneHotEncoder"]
-    # cat_inversed = ohe.inverse_transform(cat_encoded)
-    # cat_inversed = pd.DataFrame(cat_inversed, columns=cat_feat)
-    # cat_inversed = cat_inversed[:, :2]
-
-    # inversed_transform = pd.DataFrame(
-    #     np.hstack([num_inversed, cat_inversed]),
-    #     columns=num_feat.tolist() + cat_feat.tolist(),
-    # )
-    # inversed_transform["species"] = data_inferenced["species"].values
